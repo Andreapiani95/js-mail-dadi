@@ -19,10 +19,33 @@ const mailList = [
 
 console.log('mailList', mailList, mailList.length, typeof mailList);
 
+const mailForm = document.getElementById('mail-form');
+    
+mailForm.addEventListener('submit',
+    function(event){
+        event.preventDefault();
 
-//credo di dover fare un ciclo per controllare ogni punto del mio array. X sarà il value ottenuto dall'input che devo aggiungere prima della dichiarazione del ciclo
-for (let i = 0; i < mailList.length; i++){
-    if (mailList[i] == x){
-        console.log(i, mailList[i]);
+        console.log('controllo del value del form');
+
+        const x = document.getElementById('mail').value;
+        console.log(x)
+
+        for (let i = 0; i < mailList.length; i++){
+            if (mailList[i] === x ){
+                console.log(i, mailList[i]);
+
+                document.getElementById('output').innerHTML = 'La tua mail è valida';
+                break;
+            }
+                else{
+                    document.getElementById('output').innerHTML = 'La tua mail NON è valida';
+            }
     }
 }
+)
+
+
+
+
+
+//credo di dover fare un ciclo per controllare ogni punto del mio array. X sarà il value ottenuto dall'input che devo aggiungere prima della dichiarazione del ciclo
